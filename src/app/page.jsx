@@ -9,19 +9,19 @@ export default function Home() {
   return (
     <>
       <section className="m-5 pb-5">
-        <Header title="Trending saat ini" linkTitle={"Lihat Semua"} linkHref={"/trending"} />
+        <Header title="Trending saat ini" linkTitle={"Lihat Semua"} linkHref={"/category/trending"} />
         <AnimeList perPage={8} query={TrendingAnimeQuery} />
       </section>
       <section className="m-5 pb-5">
-        <Header title="Populer Musim ini" linkTitle={"Lihat Semua"} linkHref={"/popular"} />
+        <Header title="Populer Musim ini" linkTitle={"Lihat Semua"} linkHref={"/category/popular"} />
         <AnimeList perPage={8} query={PopularAnimeQuery} />
       </section>
       <section className="m-5 pb-5">
-        <Header title="Top Anime" linkTitle={"Lihat Semua"} linkHref={"/top"} />
+        <Header title="Top Anime" linkTitle={"Lihat Semua"} linkHref={"/category/top"} />
         <AnimeList perPage={8} query={top100AnimeQuery} />
       </section>
       <section className="m-5 pb-5">
-        <Header title="Anime Favorit" linkTitle={"Lihat Semua"} linkHref={"/fav"} />
+        <Header title="Anime Favorit" linkTitle={"Lihat Semua"} linkHref={"/category/fav"} />
         <AnimeList perPage={8} query={favouritesAnimeQuery} />
       </section>
     </>

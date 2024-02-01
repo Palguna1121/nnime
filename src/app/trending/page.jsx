@@ -1,13 +1,11 @@
-import AnimeList from "@/components/List/AnimeList";
-import HeaderMenu from "@/components/Utilities/HeaderMenu";
-import { TrendingAnimeQuery } from "@/helper/searchQueryStrings";
 import React from "react";
+import { TrendingAnimeQuery } from "@/helper/searchQueryStrings";
+import CAnimeList from "@/components/List/Category/CAnimelist";
 
 const Page = () => {
   return (
     <>
-      <HeaderMenu title={`Trending Anime, page`} />
-      <AnimeList perPage={40} query={TrendingAnimeQuery} />
+      <CAnimeList perPage={8} query={TrendingAnimeQuery} />
     </>
   );
 };
