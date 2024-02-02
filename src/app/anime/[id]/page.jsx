@@ -57,7 +57,7 @@ const page = async ({ params: { id } }) => {
           <h1>Oops! This Anime Is Not Available / Animenya Gada</h1>
         </div>
       )}
-      {loading && !notAvailable && <div className="h-screen w-screen flex justify-center items-center">Loading lagi bentar</div>}
+      {loading && !notAvailable && <div className="h-screen w-screen flex justify-center items-center">Loading..</div>}
       {!loading && !notAvailable && (
         <div>
           {anilistResponse !== undefined && (

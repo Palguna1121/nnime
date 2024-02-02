@@ -101,7 +101,7 @@ const Page = () => {
 
   return (
     <div>
-      {loading && <div className="h-screen w-screen flex justify-center items-center">Loading dulu mass</div>}
+      {loading && <div className="h-screen w-screen flex justify-center items-center">Loading..</div>}
       {!loading && (
         <div className="mx-10 my-5">
           {episodeLinks && animeDetails && currentServer !== "" && (
@@ -120,7 +120,7 @@ const Page = () => {
                     </Link>
                   </div>
                 </div>
-                <p className="text-sm text-gray-400 font-light">If the video player doesn't load or if blank refresh the page or use the external server</p>
+                <p className="text-sm text-gray-400 font-light">If the video player doesn't load or if blank refresh the page</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-4">

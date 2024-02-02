@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="mx-auto max-w-screen-xl px-4 py-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <Link href="/" className="text-3xl">
+            <Link href="/" className="text-4xl font-bold">
               nnime
             </Link>
           </div>

@@ -118,7 +118,10 @@ const VideoPlayer = ({ sources, internalPlayer, setInternalPlayer, title, type, 
         });
 
         player.on("exitfullscreen", (event) => {
-          document.querySelector(".skip-button").remove();
+          var skipButton = document.querySelector(".skip-button");
+          if (skipButton) {
+            skipButton.remove();
+          }
           window.screen.orientation.lock("portrait");
         });
 
@@ -247,7 +250,7 @@ const VideoPlayer = ({ sources, internalPlayer, setInternalPlayer, title, type, 
       }}
     >
       <div className="flex justify-between items-center bg-gray-900 py-2 px-4 rounded-t-lg border border-gray-700 mt-4 mb-4 font-semibold">
-        <p className="text-white">Player</p>
+        <p className="text-white">nnime Player</p>
         <div className="flex">
           {autoPlay ? (
             <div className="tooltip">

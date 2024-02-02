@@ -32,7 +32,7 @@ const Page = () => {
   }
 
   if (!query) {
-    return <div className="h-screen w-screen flex justify-center items-center">Loading Gaada query mas bro</div>;
+    return <div className="h-screen w-screen flex justify-center items-center">Loading..</div>;
   }
 
   return (

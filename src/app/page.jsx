@@ -2,12 +2,19 @@
 
 import AnimeList from "@/components/List/AnimeList";
 import Header from "@/components/List/Header";
+import Carousel from "@/components/Utilities/Carousel";
 import { TrendingAnimeQuery, PopularAnimeQuery, top100AnimeQuery, favouritesAnimeQuery } from "@/helper/searchQueryStrings";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function Home() {
   return (
     <>
+      <div className="px-5 md:px-20 mt-6 md:mt-10">
+        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4 md:mb-6">
+          <span className="font-bold">Recommended</span> to you
+        </h2>
+        <Carousel />
+      </div>
       <section className="m-5 pb-5">
         <Header title="Trending saat ini" linkTitle={"Lihat Semua"} linkHref={"/category/trending"} />
         <AnimeList perPage={12} query={TrendingAnimeQuery} />
