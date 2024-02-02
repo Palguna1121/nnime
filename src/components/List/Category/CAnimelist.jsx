@@ -64,6 +64,7 @@ const CAnimeList = ({ query, nameCategory, perPage }) => {
           );
         })}
       </div>
+      
       <Pagination page={page} last={last} setPage={setPage} />
     </>
   );

@@ -154,7 +154,12 @@ export let searchByIdQuery = `
 			}
 			type
 			status
+			popularity
+			type
+			meanScore
+			favourites
 			genres
+			format
 			description
 			startDate {
 				year
@@ -171,6 +176,55 @@ export let searchByIdQuery = `
 			coverImage {
 				extraLarge
 				large
+			}
+			reviews{
+				nodes{
+					user{
+						name
+						avatar{
+							large
+							medium
+						}
+					}
+					rating
+					ratingAmount
+					body
+				}
+			}
+			characters {
+				nodes {
+				  image {
+					large
+					medium
+				  }
+				  age
+				  name {
+					full
+					userPreferred
+				  }
+				}
+				edges {
+				  name
+				  role
+				}
+			}
+			streamingEpisodes {
+				url
+				title
+				thumbnail
+				site
+			}
+			externalLinks {
+				url
+				type
+				site
+				language
+			}
+			duration
+			studios {
+				nodes {
+					name
+				}
 			}
 		}
 	}
