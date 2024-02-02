@@ -83,14 +83,14 @@ const AnimeDetails = ({ anime, malResponse, id }) => {
                 </div>
 
                 <div className="mb-4">
-                  <Link href={`/play/${id}/${malResponse?.subLink}/1`} className="text-white bg-red-600 inline-block font-semibold uppercase tracking-wide px-5 py-3 rounded mr-2">
+                  <Link href={`/play/${id}/${malResponse?.subLink}/1`} className="text-white bg-sky-950 inline-block font-semibold uppercase tracking-wide px-5 py-3 rounded mr-2">
                     Watch Sub
                   </Link>
-                  {malResponse.isDub && (
-                    <Link className="text-white bg-red-600 inline-block font-semibold uppercase tracking-wide px-5 py-3 rounded mr-2" href={`/play/${id}/${malResponse.dubLink}/1`}>
+                  {/* {malResponse.isDub && (
+                    <Link className="text-white bg-sky-950 inline-block font-semibold uppercase tracking-wide px-5 py-3 rounded mr-2" href={`/play/${id}/${malResponse.dubLink}/1`}>
                       Watch Dub
                     </Link>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>

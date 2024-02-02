@@ -44,16 +44,16 @@ const CAnimeList = ({ query, nameCategory, perPage }) => {
     <>
       <HeaderMenu title={`${category} anime, ${page}`} />
 
-      <div className="grid md:grid-cols-4 grid-cols-2 gap-10 mx-8 mb-8">
+      <div className="grid md:grid-cols-6 grid-cols-2 gap-10 mx-8 mb-8">
         {animeDetails?.media?.map((data, index) => {
           return (
             <div key={index} className="group">
               <Link href={`/anime/${data.idMal}`} as={`/anime/${data.idMal}`} passHref>
                 <div className="text-sm text-white">
-                  <img alt={data.title.romaji} src={data.coverImage.extraLarge} className="rounded-xl object-cover opacity-100 transition-opacity group-hover:opacity-40 h-[250px] w-full duration-500 sm:h-[350px]" />
+                  <img alt={data.title.romaji} src={data.coverImage.extraLarge} className="rounded-xl object-cover opacity-100 transition-opacity group-hover:opacity-40 h-[150px] w-full duration-500 sm:h-[250px]" />
                   <div className="text-left p-2 px-3">
-                    {data.title.romaji.length > 25 ? (
-                      <p className="text-base font-semibold text-white lg:text-xl md:text-lg">{data.title.romaji.slice(0, 25)}...</p>
+                    {data.title.romaji.length > 15 ? (
+                      <p className="text-base font-semibold text-white lg:text-xl md:text-lg">{data.title.romaji.slice(0, 15)}...</p>
                     ) : (
                       <p className="text-base font-semibold text-white lg:text-xl md:text-lg">{data.title.romaji}</p>
                     )}
@@ -64,7 +64,7 @@ const CAnimeList = ({ query, nameCategory, perPage }) => {
           );
         })}
       </div>
-      
+
       <Pagination page={page} last={last} setPage={setPage} />
     </>
   );

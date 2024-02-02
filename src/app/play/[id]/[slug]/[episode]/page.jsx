@@ -109,8 +109,9 @@ const Page = () => {
               <div>
                 <div className="flex justify-between items-center mb-2">
                   <p className="text-white text-xl font-semibold">
-                    <span>{`${animeDetails.title.english !== null ? animeDetails.title.english : animeDetails.title.userPreferred} ${episodeLinks.isDub ? "(Dub)" : "(Sub)"}`}</span>
+                    <span>{`${animeDetails.title.english !== null ? animeDetails.title.english : animeDetails.title.userPreferred}`}</span>
                     {` Episode - ${episode}`}
+                    {/* ${episodeLinks.isDub ? "(Dub)" : "(Sub)"} */}
                   </p>
                   <div className="flex items-center">
                     <Link href={episodeLinks.downloadLink} target="_blank" rel="noopener noreferrer" className="text-white flex items-center mr-3">
