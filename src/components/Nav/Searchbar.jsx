@@ -26,7 +26,7 @@ const Searchbar = () => {
           Search{" "}
         </label>
 
-        <input onKeyPress={handleSearch} ref={searchRef} className="h-10 w-full rounded-full border-none bg-white pe-10 ps-4 text-sm shadow-sm sm:w-56 text-black" id="search" type="search" placeholder="Search Anime..." />
+        <input autoComplete="off" onKeyPress={handleSearch} ref={searchRef} className="h-10 w-full rounded-full border-none bg-white pe-10 ps-4 text-sm shadow-sm sm:w-56 text-black" id="search" type="search" placeholder="Search Anime..." />
 
         <button type="button" onClick={handleSearch} className="absolute end-1 top-1/2 -translate-y-1/2 rounded-full bg-gray-50 p-2 text-gray-600 transition hover:text-gray-700">
           <span className="sr-only">Search</span>

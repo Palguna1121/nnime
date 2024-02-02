@@ -39,7 +39,7 @@ const page = async ({ params: { id } }) => {
     }).catch((err) => {
       console.log(err);
     });
-    setAnilistResponse(aniRes.data?.data.Media);
+    setAnilistResponse(aniRes?.data?.data.Media);
     let malRes = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/getidinfo?malId=${id}`).catch((err) => {
       setNotAvailable(true);
     });

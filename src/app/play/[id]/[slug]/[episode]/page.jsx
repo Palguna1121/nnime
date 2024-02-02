@@ -26,6 +26,10 @@ const Page = () => {
     getEpisodeLinks();
   }, [episode]);
 
+  function handleNavigation(newUrl) {
+    window.location.href = newUrl;
+  }
+
   async function getEpisodeLinks() {
     setLoading(true);
     window.scrollTo(0, 0);
@@ -139,16 +143,16 @@ const Page = () => {
 
                   <div className="flex justify-around mt-4">
                     {parseInt(episode) > 1 && (
-                      <Link href={`/play/${mal_id}/${episodeLinks.animeId}/${parseInt(episode) - 1}`} className="text-white text-lg font-semibold flex items-center">
+                      <button onClick={() => handleNavigation(`/play/${mal_id}/${episodeLinks.animeId}/${parseInt(episode) - 1}`)} className="text-white text-lg font-semibold flex items-center">
                         <HiArrowSmLeft />
                         <span className="ml-1">Previous</span>
-                      </Link>
+                      </button>
                     )}
                     {parseInt(episode) < parseInt(episodeLinks.totalEpisodes) && (
-                      <Link href={`/play/${mal_id}/${episodeLinks.animeId}/${parseInt(episode) + 1}`} className="text-white text-lg font-semibold flex items-center">
+                      <button onClick={() => handleNavigation(`/play/${mal_id}/${episodeLinks.animeId}/${parseInt(episode) + 1}`)} className="text-white text-lg font-semibold flex items-center">
                         <span className="mr-1">Next</span>
                         <HiArrowSmRight />
-                      </Link>
+                      </button>
                     )}
                   </div>
                 </div>
@@ -159,12 +163,13 @@ const Page = () => {
                   </div>
                   <div className="grid grid-cols-5 gap-4">
                     {[...Array(parseInt(episodeLinks.totalEpisodes))].map((x, i) => (
-                      <Link
-                        href={`/play/${mal_id}/${episodeLinks.animeId}/${parseInt(i) + 1}`}
+                      <button
+                        key={i}
+                        onClick={() => handleNavigation(`/play/${mal_id}/${episodeLinks.animeId}/${parseInt(i) + 1}`)}
                         className={`text-white text-center border border-gray-700 rounded-md py-2 hover:bg-blue-600 ${i + 1 <= parseInt(episode) ? "bg-blue-600" : ""}`}
                       >
                         {i + 1}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 </div>

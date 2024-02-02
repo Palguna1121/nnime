@@ -59,13 +59,13 @@ const Carousel = () => {
           disableOnInteraction: false,
         }}
       >
-        {images.map(
+        {images?.map(
           (item, index) =>
             item.bannerImage !== null && (
               <SwiperSlide key={index}>
                 <div className="relative">
                   <img src={item.bannerImage} alt="" className="w-full h-64 md:h-80 object-cover rounded-md" />
-                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/90 via-gray-500/70 to-transparent rounded-md">
+                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/90 via-gray-800/70 to-transparent rounded-md">
                     <div className="flex justify-between items-center text-white px-6 py-4">
                       <p className="font-semibold text-xl">
                         {item.title.english !== null
