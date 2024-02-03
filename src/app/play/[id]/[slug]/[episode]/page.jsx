@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BiArrowToBottom, BiFullscreen } from "react-icons/bi";
 import { HiArrowSmLeft, HiArrowSmRight, HiOutlineSwitchHorizontal } from "react-icons/hi";
-import { searchByIdQuery } from "../../../helper/searchQueryStrings";
-import VideoPlayer from "../../../components/Player/VideoPlayer";
+import { searchByIdQuery } from "@/helper/searchQueryStrings";
+import VideoPlayer from "@/components/Player/VideoPlayer";
 import Link from "next/link";
 
 const Page = () => {

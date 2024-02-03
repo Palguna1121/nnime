@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import CAnimeList from "../../../components/List/Category/CAnimelist";
-import { TrendingAnimeQuery, PopularAnimeQuery, top100AnimeQuery, favouritesAnimeQuery } from "../../../helper/searchQueryStrings";
+import CAnimeList from "@/components/List/Category/CAnimeList";
+import { TrendingAnimeQuery, PopularAnimeQuery, top100AnimeQuery, favouritesAnimeQuery } from "@/helper/searchQueryStrings";
 
 const Page = () => {
   const [category, setCategory] = useState(null);

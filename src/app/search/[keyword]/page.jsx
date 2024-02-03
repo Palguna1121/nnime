@@ -1,9 +1,9 @@
 "use client";
 import axios from "axios";
-import Header from "../../../components/List/Header";
+import Header from "@/components/List/Header";
 import React, { useEffect, useState } from "react";
-import { searchAnimeQuery } from "../../../helper/searchQueryStrings";
-import SearchList from "../../../components/List/Search/SearchList";
+import { searchAnimeQuery } from "@/helper/searchQueryStrings";
+import SearchList from "@/components/List/Search/SearchList";
 
 const Page = ({ params }) => {
   const { keyword } = params;
