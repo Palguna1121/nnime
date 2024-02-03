@@ -36,7 +36,7 @@ const Carousel = () => {
         query: TrendingAnimeQuery,
         variables: {
           page: 1,
-          perPage: 25,
+          perPage: 12,
         },
       },
     }).catch((err) => {
@@ -51,9 +51,9 @@ const Carousel = () => {
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
-        navigation={true}
+        navigation={false}
         pagination={{ dynamicBullets: true }}
-        loop={true}
+        loop={images?.length > 1}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
@@ -66,7 +66,7 @@ const Carousel = () => {
                 <div className="relative">
                   <img src={item.bannerImage} alt="" className="w-full h-64 md:h-80 object-cover rounded-md" />
                   <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/90 via-gray-800/70 to-transparent rounded-md">
-                    <div className="flex justify-between items-center text-white px-6 py-4">
+                    <div className="flex justify-between items-center text-white px-6 pt-12">
                       <p className="font-semibold text-xl">
                         {item.title.english !== null
                           ? item.title.english.length > 35
@@ -88,10 +88,15 @@ const Carousel = () => {
                         }}
                       >
                         <Link href={"anime/" + item.idMal} className="flex items-center">
-                          <div className="block md:hidden">
+                          <div className="md:hidden inline-block rounded-full border border-indigo-600 bg-indigo-600 p-2 text-white hover:bg-indigo-100 hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
                             <BsFillPlayFill />
                           </div>
-                          <span className="ml-1 hidden md:block">Watch Now</span>
+                          <div className="ml-1 hidden md:inline-flex items-center gap-2 rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-indigo-100 hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
+                            <span className="text-sm font-medium">Watch Now</span>
+                            <svg className="h-5 w-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </div>
                         </Link>
                       </IconContext.Provider>
                     </div>

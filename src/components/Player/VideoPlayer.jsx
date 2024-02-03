@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BsSkipEnd } from "react-icons/bs";
 import { MdPlayDisabled, MdPlayArrow } from "react-icons/md";
+// import { BiFullscreen } from "react-icons/bi";
 import Hls from "hls.js/dist/hls.js";
 import plyr from "plyr";
 import "plyr/dist/plyr.css";
@@ -27,6 +28,28 @@ const VideoPlayer = ({ sources, internalPlayer, setInternalPlayer, title, type, 
     setAutoplay(data);
   }
 
+  // function fullScreenHandler() {
+  //   const video = document.getElementById("player");
+
+  //   if (!document.fullscreenElement) {
+  //     if (video.requestFullscreen) {
+  //       video.requestFullscreen();
+  //     } else if (video.webkitRequestFullscreen) {
+  //       video.webkitRequestFullscreen();
+  //     } else if (video.msRequestFullscreen) {
+  //       video.msRequestFullscreen();
+  //     }
+  //   } else {
+  //     if (document.exitFullscreen) {
+  //       document.exitFullscreen();
+  //     } else if (document.webkitExitFullscreen) {
+  //       document.webkitExitFullscreen();
+  //     } else if (document.msExitFullscreen) {
+  //       document.msExitFullscreen();
+  //     }
+  //   }
+  // }
+
   useEffect(() => {
     if (!localStorage.getItem("autoplay")) {
       localStorage.setItem("autoplay", false);
@@ -42,7 +65,7 @@ const VideoPlayer = ({ sources, internalPlayer, setInternalPlayer, title, type, 
     };
 
     if (type === "mp4") {
-      video.removeAttribute("crossorigin");
+      video.removeAttribute("crossOrigin");
       const player = new plyr(video, defaultOptions);
       player.source = {
         type: "video",
@@ -265,6 +288,11 @@ const VideoPlayer = ({ sources, internalPlayer, setInternalPlayer, title, type, 
               </button>
             </div>
           )}
+          {/* <div className="tooltip">
+            <button title="Full Screen" onClick={fullScreenHandler}>
+              <BiFullscreen />
+            </button>
+          </div> */}
           <div className="tooltip">
             <button title="Skip Intro" onClick={() => skipIntro()}>
               <BsSkipEnd />
@@ -275,7 +303,7 @@ const VideoPlayer = ({ sources, internalPlayer, setInternalPlayer, title, type, 
       <video
         id="player"
         playsInline
-        crossorigin
+        crossOrigin="anonymous"
         data-poster={banner}
         className="w-full"
         style={{

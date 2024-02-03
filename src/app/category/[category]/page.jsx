@@ -37,7 +37,7 @@ const Page = () => {
 
   return (
     <>
-      <CAnimeList perPage={42} nameCategory={category} query={query} />
+      <CAnimeList perPage={36} nameCategory={category} query={query} />
     </>
   );
 };

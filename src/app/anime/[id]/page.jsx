@@ -5,25 +5,14 @@ import { searchByIdQuery } from "@/helper/searchQueryStrings";
 import AnimeDetails from "@/components/List/Detail/AnimeDetails";
 import Link from "next/link";
 
-const page = async ({ params: { id } }) => {
-  let malId = id;
-  const [anilistResponse, setAnilistResponse] = useState();
-  const [malResponse, setMalResponse] = useState();
+const fetchData = async (id, setAnilistResponse, setMalResponse, setLoading, setNotAvailable) => {
+  if (id === "null") {
+    setNotAvailable(true);
+    return;
+  }
 
-  const [loading, setLoading] = useState(true);
-
-  const [notAvailable, setNotAvailable] = useState(false);
-
-  useEffect(() => {
-    getInfo();
-  }, []);
-
-  async function getInfo() {
-    if (id === "null") {
-      setNotAvailable(true);
-      return;
-    }
-    let aniRes = await axios({
+  try {
+    const aniRes = await axios({
       url: process.env.NEXT_PUBLIC_BASE_URL,
       method: "POST",
       headers: {
@@ -36,19 +25,29 @@ const page = async ({ params: { id } }) => {
           id,
         },
       },
-    }).catch((err) => {
-      console.log(err);
     });
     setAnilistResponse(aniRes?.data?.data.Media);
-    let malRes = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/getidinfo?malId=${id}`).catch((err) => {
-      setNotAvailable(true);
-    });
-    setMalResponse(malRes?.data);
-    setLoading(false);
-  }
 
-  // console.log(anilistResponse);
-  // console.log(malResponse);
+    const malRes = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/getidinfo?malId=${id}`);
+    setMalResponse(malRes?.data);
+
+    setLoading(false);
+  } catch (error) {
+    console.error(error);
+    setNotAvailable(true);
+  }
+};
+
+const Page = ({ params: { id } }) => {
+  let malId = id;
+  const [anilistResponse, setAnilistResponse] = useState();
+  const [malResponse, setMalResponse] = useState();
+  const [loading, setLoading] = useState(true);
+  const [notAvailable, setNotAvailable] = useState(false);
+
+  useEffect(() => {
+    fetchData(id, setAnilistResponse, setMalResponse, setLoading, setNotAvailable);
+  }, [id]);
 
   return (
     <>
@@ -67,9 +66,8 @@ const page = async ({ params: { id } }) => {
           )}
         </div>
       )}
-      {/* <AnimeDetails anime={anilistResponse} /> */}
     </>
   );
 };
 
-export default page;
+export default Page;

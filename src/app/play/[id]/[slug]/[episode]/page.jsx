@@ -35,7 +35,6 @@ const Page = () => {
     window.scrollTo(0, 0);
     let res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/getmixlinks?id=${slug}&ep=${episode}`);
     setEpisodeLinks(res.data);
-    console.log(res);
 
     setCurrentServer(res.data.gogoLink);
     if (!res.data.sources) {

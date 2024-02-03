@@ -50,7 +50,7 @@ const CAnimeList = ({ query, nameCategory, perPage }) => {
             <div key={index} className="group">
               <Link href={`/anime/${data.idMal}`} as={`/anime/${data.idMal}`} passHref>
                 <div className="text-sm text-white">
-                  <img alt={data.title.romaji} src={data.coverImage.extraLarge} className="rounded-xl object-cover opacity-100 transition-opacity group-hover:opacity-40 h-[150px] w-full duration-500 sm:h-[250px]" />
+                  <img alt={data.title.romaji} src={data.coverImage.extraLarge} className="rounded-xl object-cover opacity-[0.65] transition-opacity group-hover:opacity-100 h-[150px] w-full duration-500 sm:h-[250px]" />
                   <div className="text-left p-2 px-3">
                     {data.title.romaji.length > 15 ? (
                       <p className="text-base font-semibold text-white lg:text-xl md:text-lg">{data.title.romaji.slice(0, 15)}...</p>
