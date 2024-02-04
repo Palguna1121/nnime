@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
 import { BsFillPlayFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
-import { TrendingAnimeQuery } from "@/helper/searchQueryStrings";
+import { TrendingAnimeQuery } from "../../helper/searchQueryStrings";
 import Link from "next/link";
 
 import "swiper/swiper-bundle.css";

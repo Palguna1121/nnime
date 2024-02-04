@@ -1,7 +1,7 @@
-import AnimeList from "@/components/List/AnimeList";
-import Header from "@/components/List/Header";
-import Carousel from "@/components/Utilities/Carousel";
-import { TrendingAnimeQuery, PopularAnimeQuery, top100AnimeQuery, favouritesAnimeQuery } from "@/helper/searchQueryStrings";
+import AnimeList from "../components/List/AnimeList";
+import Header from "../components/List/Header";
+import Carousel from "../components/Utilities/Carousel";
+import { TrendingAnimeQuery, PopularAnimeQuery, top100AnimeQuery, favouritesAnimeQuery } from "../helper/searchQueryStrings";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function Home() {

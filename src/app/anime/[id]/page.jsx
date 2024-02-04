@@ -1,8 +1,8 @@
 "use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { searchByIdQuery } from "@/helper/searchQueryStrings";
-import AnimeDetails from "@/components/List/Detail/AnimeDetails";
+import { searchByIdQuery } from "../../../helper/searchQueryStrings";
+import AnimeDetails from "../../../components/List/Detail/AnimeDetails";
 import Link from "next/link";
 
 const fetchData = async (id, setAnilistResponse, setMalResponse, setLoading, setNotAvailable) => {
