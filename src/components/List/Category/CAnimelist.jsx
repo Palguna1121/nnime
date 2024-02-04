@@ -3,7 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import HeaderMenu from "../../Utilities/HeaderMenu";
-import Pagination from "../../components/Utilities/Pagination";
+import Pagination from "../../Utilities/Pagination";
 
 const CAnimeList = ({ query, nameCategory, perPage }) => {
   const [page, setPage] = useState(1);
