@@ -17,7 +17,6 @@ import "swiper/css/scrollbar";
 
 const Carousel = () => {
   const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getImages();
@@ -43,7 +42,6 @@ const Carousel = () => {
       console.log(err);
     });
     setImages(result?.data?.data?.Page.media);
-    setLoading(false);
   }
   return (
     <div>
