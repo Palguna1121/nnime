@@ -2,9 +2,10 @@ import React from "react";
 import Synopsis from "./Part/Synopsis";
 import Studio from "./Part/Studio";
 import Genre from "./Part/Genre";
+import AllChara from "./Part/AllChara";
 import Link from "next/link";
 
-const AnimeDetails = ({ anime, malResponse, id }) => {
+const AnimeDetails = ({ anime, id }) => {
   function stripTags(html) {
     return html.replace(/<\/?[^>]+(>|$)/g, "");
   }
@@ -22,6 +23,9 @@ const AnimeDetails = ({ anime, malResponse, id }) => {
 
     return formattedDate;
   }
+
+  console.log(anime.characters.nodes);
+  let characters = anime.characters.nodes;
 
   return (
     <>
@@ -82,26 +86,24 @@ const AnimeDetails = ({ anime, malResponse, id }) => {
                   </div>
                 </div>
 
-                <div className="mb-4">
+                {/* <div className="mb-4">
                   <Link href={`/play/${id}/${malResponse?.subLink}/1`} className="text-white bg-sky-950 inline-block font-semibold uppercase tracking-wide px-5 py-3 rounded mr-2">
                     Watch Sub
                   </Link>
-                  {/* {malResponse.isDub && (
+                  {malResponse.isDub && (
                     <Link className="text-white bg-sky-950 inline-block font-semibold uppercase tracking-wide px-5 py-3 rounded mr-2" href={`/play/${id}/${malResponse.dubLink}/1`}>
                       Watch Dub
                     </Link>
-                  )} */}
-                </div>
+                  )}
+                </div> */}
               </div>
             </div>
           </div>
         </div>
 
-        {/* <div className="flex justify-center items-center h-full bg-black bg-opacity-70 px-5">
-          <VideoPlayer ytId={anime.data?.trailer.youtube_id} />
-        </div>
+        <div className="flex justify-center items-center h-full bg-black bg-opacity-70 px-5">{/* <VideoPlayer ytId={anime.data?.trailer.youtube_id} /> */}</div>
 
-        <AllChara anime={anime} characters={characters} /> */}
+        <AllChara anime={anime} characters={characters} />
       </div>
     </>
   );

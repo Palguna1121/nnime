@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { searchByIdQuery } from "../../../helper/searchQueryStrings";
 import AnimeDetails from "../../../components/List/Detail/AnimeDetails";
 
-const fetchData = async (id, setAnilistResponse, setMalResponse, setLoading, setNotAvailable) => {
+const fetchData = async (id, setAnilistResponse, setLoading, setNotAvailable) => {
   if (id === "null") {
     setNotAvailable(true);
     return;
@@ -27,8 +27,8 @@ const fetchData = async (id, setAnilistResponse, setMalResponse, setLoading, set
     });
     setAnilistResponse(aniRes?.data?.data.Media);
 
-    const malRes = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/getidinfo?malId=${id}`);
-    setMalResponse(malRes?.data);
+    // const malRes = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/getidinfo?malId=${id}`);
+    // setMalResponse(malRes?.data);
 
     setLoading(false);
   } catch (error) {
@@ -40,12 +40,12 @@ const fetchData = async (id, setAnilistResponse, setMalResponse, setLoading, set
 const Page = ({ params: { id } }) => {
   let malId = id;
   const [anilistResponse, setAnilistResponse] = useState();
-  const [malResponse, setMalResponse] = useState();
+  // const [malResponse, setMalResponse] = useState();
   const [loading, setLoading] = useState(true);
   const [notAvailable, setNotAvailable] = useState(false);
 
   useEffect(() => {
-    fetchData(id, setAnilistResponse, setMalResponse, setLoading, setNotAvailable);
+    fetchData(id, setAnilistResponse, setLoading, setNotAvailable);
   }, [id]);
 
   return (
@@ -60,7 +60,7 @@ const Page = ({ params: { id } }) => {
         <div>
           {anilistResponse !== undefined && (
             <>
-              <AnimeDetails anime={anilistResponse} malResponse={malResponse} id={malId} />
+              <AnimeDetails anime={anilistResponse} id={malId} />
             </>
           )}
         </div>

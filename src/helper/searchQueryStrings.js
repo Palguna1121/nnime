@@ -201,13 +201,60 @@ export let searchByIdQuery = `
 				  name {
 					full
 					userPreferred
+					native
+					alternative
+					alternativeSpoiler
 				  }
+				  description
+				  gender
+				  id
 				}
 				edges {
 				  name
 				  role
+				  node {
+					name {
+					  full
+					  native
+					  alternative
+					  userPreferred
+					}
+					image {
+					  large
+					  medium
+					}
+					description
+					gender
+					dateOfBirth {
+					  day
+					  month
+					  year
+					}
+					age
+					id
+				  }
+				  voiceActors {
+					id
+					name {
+					  full
+					  userPreferred
+					}
+					image {
+					  large
+					  medium
+					}
+					age
+					gender
+				  }
 				}
-			}
+				pageInfo {
+				  perPage
+				  currentPage
+				  lastPage
+				  total
+				  hasNextPage
+				}
+			  }
 			streamingEpisodes {
 				url
 				title
